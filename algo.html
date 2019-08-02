@@ -1,4 +1,6 @@
 <link rel="stylesheet" href="main.css">
+<script  src = " https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js " > </script>
+
 <style>
     .fig {
      text-align: center; /* Выравнивание по центру */ 
@@ -46,9 +48,63 @@
    </p>
   <p>
     Элемент будет представляться структурой в которой мы будем хранить нужное значение, и ссылку на следующий элемент.
-    <p class="fig"><img  src="linked_list/Node.png" alt=""></p>
+    <pre class="prettyprint"><code class= "language-cpp">
+struct Node {
+    int value;
+    Node *Next = nullptr;
+};</code></pre>
     Давайте напишем класс связного списка, сделаем метод вставки элемента и метод вывода данных в списке.
-     <p class="fig"><img src="linked_list/Linked_list.png" alt=""></p>
+     <pre class="prettyprint"><code class="language-cpp">
+#include &lt;iostream>
+
+
+struct Node {
+    int value;
+    Node *Next = nullptr;
+};
+
+class Linked_list {
+public:
+    Node *Head = new Node{};
+
+    size_t size() {
+    };
+
+    void push(const int &element) {
+        // Создадим новый элемент
+        Node *_ = new Node{element};
+        _->Next = Head->Next;
+        Head->Next = _;
+    }
+
+    // Вставка в конец
+    void push_back(const int &x) {
+    }
+
+    // Вставка после элемента
+    void insert(Node *after_me, Node *target) {
+    }
+
+    // Удаление
+    void pop(Node *me) {
+
+    }
+
+    // Нахождение элемента
+    Node *find(const int &target) {
+
+    }
+
+    void print() {
+        Node *elem = Head->Next;
+        while (elem != nullptr) {
+            std::cout &lt;&lt; elem->value &lt;&lt; std::endl;
+            elem = elem->Next;
+        }
+    }
+};
+
+     </code></pre>
      <h3 id="Вставка элемента">Вставка элемента</h3>
      <p class="fig">Предположим, что у нас уже что-то лежит в списке и мы хотим вставить новый элемент:
      <div><img src="linked_list/push1.png" alt=""></div>
@@ -58,7 +114,7 @@
      Затем нужно что Head указывал на ваш новый элемент
      <div><img src="linked_list/push3.png"alt=""></div></p>
 
-     <h3 id="Что нужно сделать">Что scделать?</h3>
+     <h3 id="Что нужно сделать">Что cделать?</h3>
      В этой работе вам нужно будет реализовать ряд методов к списку:
      <ul>
         <li>Метод, который возвращает длину списка</li>
